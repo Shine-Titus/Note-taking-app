@@ -1,0 +1,213 @@
+body {
+    margin: 0;
+    background-color: #ecf87f;
+    font-family: 'Monaco', Courier, monospace;
+}
+
+.app-name {
+    text-align: center;
+    color: #59981a;
+    font-size: 2.5rem;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.notes-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.note {
+    background-color: #81b622;
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+    word-wrap: break-word;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Makes sure child elements (delete button) are positioned inside */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.add {
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 15px;
+    margin: 15px;
+    background-color: #81b622;
+    color: #ecf87f;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: none;
+    border-radius: 10px;
+    z-index: 10;
+    background-color: #81b622;
+    width: 500px;
+    max-width: 80%;
+    color: #384f0a;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup-header {
+    padding: 10px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-header .title {
+    font-size: 2rem;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+.popup-header .close-button {
+    cursor: pointer;
+    border: none;
+    color: #384f0a;
+    outline: none;
+    background: none;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: text;
+}
+
+.popup-body {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+}
+
+.done {
+    width: 4rem;
+    height: 2rem;
+    background-color: #ddeb5b;
+    color: #50930e;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.popup-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    border-bottom: 1px solid #ddeb5b;
+}
+
+.delete-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #384f0a;
+    transition: color 0.2s;
+    margin-top: 15px;
+    margin-right: 5px;
+}
+
+.delete-btn:hover {
+    color: #3a5208;
+}
+
+#overlay {
+    position: fixed;
+    transition: 200ms ease-in-out;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1, p {
+    color: #384f0a;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.9rem;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddeb5b;
+}
+
+p {
+    padding-top: 5px;
+    font-size: 1.5rem;
+}
+
+.note:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+}
+
+.add:hover {
+    color: #ddeb5b;
+    background-color: #50930e;
+}
+
+.title:focus,
+.popup-body:focus {
+    outline: none;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .app-name {
+        font-size: 2rem;
+    }
+    
+    .notes-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        padding: 10px;
+    }
+
+    .note {
+        padding: 10px;
+        min-height: 120px;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .popup-body {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        word-wrap: break-word;
+    }
+}

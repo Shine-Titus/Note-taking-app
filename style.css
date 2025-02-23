@@ -210,4 +210,12 @@ p {
         font-size: 1.2rem;
         word-wrap: break-word;
     }
+
+    .done {
+        font-size: 1.2rem;
+    }
+
+    .delete-btn {
+        font-size: 14px;
+    }
 }

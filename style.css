@@ -118,6 +118,7 @@ body {
     position: absolute;
     top: 5px;
     right: 5px;
+    padding: 10px;
     background: none;
     border: none;
     cursor: pointer;
@@ -213,6 +214,7 @@ p {
 
     .done {
         font-size: 1.2rem;
+        width: 2.5rem;
     }
 
     .delete-btn {
